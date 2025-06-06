@@ -76,7 +76,7 @@
     </style>
     <script>
         $(document).ready(function () {
-            $('#form_usuario').submit(function (e) {
+            $('#form-usuario').submit(function (e) {
                 e.preventDefault();
 
                 var formData = new FormData(this);
@@ -89,7 +89,7 @@
                     contentType: false,
                     success: function (response) {
                         alert(response);
-                        $('#form_usuario')[0].reset(); // Limpia el formulario si fue exitoso
+                        $('#form-usuario')[0].reset(); // Limpia el formulario si fue exitoso
                         window.location.href = 'registrado.html'; // Redirige después del éxito
                     },
                     error: function () {

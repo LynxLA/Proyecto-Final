@@ -6,7 +6,6 @@ $user = 'root';
 $password = '';
 $charset = 'utf8mb4';
 
-// Conexión con PDO
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -14,7 +13,7 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($dsn, $user, $password, $options);
 } catch (PDOException $e) {
     echo "Error de conexión: " . $e->getMessage();
     exit;
@@ -41,9 +40,8 @@ $hash = password_hash($contraseña, PASSWORD_DEFAULT);
 $imagenRuta = '';
 if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
     $nombreArchivo = basename($_FILES["imagen"]["name"]);
-    $rutaDestino = "./archivos/" . $nombreArchivo;
+    $rutaDestino = "../archivos/" . $nombreArchivo;
 
-    // Asegúrate de que la carpeta "uploads" exista
     if (!move_uploaded_file($_FILES["imagen"]["tmp_name"], $rutaDestino)) {
         echo "Error al subir la imagen.";
         exit;
@@ -51,19 +49,19 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
     $imagenRuta = $rutaDestino;
 }
 
-// Insertar en la base de datos
+// Preparar e insertar en la base de datos
 $sql = "INSERT INTO clientes (nombre, telefono, correo, direccion, contraseña, imagen)
-        VALUES (:nombre, :telefono, :correo, :direccion, :contraseña, :imagen)";
+        VALUES (:nombre, :telefono, :correo, :direccion, :contrasena, :imagen)";
 $stmt = $pdo->prepare($sql);
 
 try {
     $stmt->execute([
-        'nombre' => $nombre,
-        'telefono' => $telefono,
-        'correo' => $correo,
-        'direccion' => $direccion,
-        'contraseña' => $hash,
-        'imagen' => $imagenRuta
+        ':nombre' => $nombre,
+        ':telefono' => $telefono,
+        ':correo' => $correo,
+        ':direccion' => $direccion,
+        ':contrasena' => $hash,
+        ':imagen' => $imagenRuta
     ]);
 
     echo "Registro exitoso.";
