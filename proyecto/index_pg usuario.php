@@ -13,9 +13,27 @@
       <h1 class="text-2xl font-bold">ProxyStore</h1>
       <nav class="space-x-6">
         <a href="#inicio" class="text-gray-700 hover:text-blue-600">Inicio</a>
+        <a href="./Admin/eliminar.html" class="text-gray-700 hover:text-blue-600">Baja</a>
+        <a href="./Admin/consultar.html" class="text-gray-700 hover:text-blue-600">Consulta</a>
+        <a href="./Admin/actualizar.html" class="text-gray-700 hover:text-blue-600">Actualizar</a>
         <a href="#productos" class="text-gray-700 hover:text-blue-600">Productos</a>
         <a href="#servicio" class="text-gray-700 hover:text-blue-600">Servicio al Cliente</a>
-        <a href="Redireccionar.html" class="text-gray-700 hover:text-blue-600">Iniciar Sesion</a>
+        <?php session_start(); ?>
+<div class="flex items-center space-x-3" id="user-info">
+  <?php if (isset($_SESSION['usuario'])): ?>
+    <img src="<?= $_SESSION['usuario']['foto'] ?>" alt="Foto de perfil" class="w-8 h-8 rounded-full object-cover">
+    <span class="text-gray-700 font-medium"><?= $_SESSION['usuario']['nombre'] ?></span>
+  <?php else: ?>
+    <a href="Redireccionar.html" class="text-gray-700 hover:text-blue-600">Iniciar Sesión</a>
+  <?php endif; ?>
+  <?php if (isset($_SESSION['usuario'])): ?>
+  <form action="logout.php" method="post">
+    <button type="submit" class="ml-4 text-red-500 hover:text-red-700 text-sm">Cerrar sesión</button>
+  </form>
+<?php endif; ?>
+
+</div>
+
       </nav>
     </div>
   </header>
