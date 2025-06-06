@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tienda de Suscripciones</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
   <!-- Navbar -->
   <header class="bg-white shadow">
@@ -19,20 +21,20 @@
         <a href="#productos" class="text-gray-700 hover:text-blue-600">Productos</a>
         <a href="#servicio" class="text-gray-700 hover:text-blue-600">Servicio al Cliente</a>
         <?php session_start(); ?>
-<div class="flex items-center space-x-3" id="user-info">
-  <?php if (isset($_SESSION['usuario'])): ?>
-    <img src="<?= $_SESSION['usuario']['foto'] ?>" alt="Foto de perfil" class="w-8 h-8 rounded-full object-cover">
-    <span class="text-gray-700 font-medium"><?= $_SESSION['usuario']['nombre'] ?></span>
-  <?php else: ?>
-    <a href="Redireccionar.html" class="text-gray-700 hover:text-blue-600">Iniciar Sesión</a>
-  <?php endif; ?>
-  <?php if (isset($_SESSION['usuario'])): ?>
-  <form action="logout.php" method="post">
-    <button type="submit" class="ml-4 text-red-500 hover:text-red-700 text-sm">Cerrar sesión</button>
-  </form>
-<?php endif; ?>
+        <div class="flex items-center space-x-3" id="user-info">
+          <?php if (isset($_SESSION['usuario'])): ?>
+            <img src="<?= $_SESSION['usuario']['foto'] ?>" alt="Foto de perfil" class="w-8 h-8 rounded-full object-cover">
+            <span class="text-gray-700 font-medium"><?= $_SESSION['usuario']['nombre'] ?></span>
+          <?php else: ?>
+            <a href="Redireccionar.html" class="text-gray-700 hover:text-blue-600">Iniciar Sesión</a>
+          <?php endif; ?>
+          <?php if (isset($_SESSION['usuario'])): ?>
+            <form action="logout.php" method="post">
+              <button type="submit" class="ml-4 text-red-500 hover:text-red-700 text-sm">Cerrar sesión</button>
+            </form>
+          <?php endif; ?>
 
-</div>
+        </div>
 
       </nav>
     </div>
@@ -57,21 +59,21 @@
           <h3 class="text-xl font-bold mb-2">Netflix</h3>
           <p class="mb-4">Disfruta de miles de películas y series con acceso ilimitado.</p>
           <span class="block font-semibold mb-2">$15.99/mes</span>
-	  <a href="form-netflix.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Suscribirse</a>
+          <a href="./Productos/form-netflix.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Suscribirse</a>
         </div>
         <!-- Spotify -->
         <div class="bg-gray-100 p-6 rounded-xl shadow">
           <h3 class="text-xl font-bold mb-2">Spotify Premium</h3>
           <p class="mb-4">Escucha música sin anuncios, sin conexión y con mejor calidad.</p>
           <span class="block font-semibold mb-2">$9.99/mes</span>
-	  <a href="form-spotify.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Suscribirse</a>
+          <a href="./Productos/form-spotify.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Suscribirse</a>
         </div>
         <!-- Amazon Prime -->
         <div class="bg-gray-100 p-6 rounded-xl shadow">
           <h3 class="text-xl font-bold mb-2">Amazon Prime</h3>
           <p class="mb-4">Envíos rápidos, Prime Video, música y más beneficios en un solo lugar.</p>
           <span class="block font-semibold mb-2">$14.99/mes</span>
-	  <a href="form-amazon.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Suscribirse</a>
+          <a href="./Productos/form-amazon.html"class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Suscribirse</a>
         </div>
       </div>
     </div>
@@ -91,5 +93,5 @@
     &copy; 2025 SuscripStore. Todos los derechos reservados.
   </footer>
 </body>
-</html>
 
+</html>

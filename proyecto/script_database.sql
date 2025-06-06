@@ -56,6 +56,13 @@ CREATE TABLE Tickets (
     estatus NVARCHAR(50) NOT NULL
 );
 
+-- Modificar la tabla para que id_venta sea autoincremental
+ALTER TABLE Ventas MODIFY id_venta INT AUTO_INCREMENT;
+
+-- Establecer fecha por defecto como la fecha actual
+ALTER TABLE Ventas MODIFY fecha DATE NOT NULL DEFAULT CURRENT_DATE;
+
+
 -- Insertar datos en Membresias
 INSERT INTO Membresias (Servicio, Plan, Duracion, Precio) VALUES
   ('Spotify', 'Individual', '1 mes', 109),
