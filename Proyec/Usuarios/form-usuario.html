@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro de Usuario</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f2f6fc, #dbe9f4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .return-button {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .return-button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#form_usuario').submit(function (e) {
+                e.preventDefault();
+
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: 'subir_usuario.php',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        alert(response);
+                        $('#form_usuario')[0].reset(); // Limpia el formulario si fue exitoso
+                        window.location.href = 'registrado.html'; // Redirige después del éxito
+                    },
+                    error: function () {
+                        alert("Hubo un error al procesar el formulario.");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Formulario de Registro de Usuario</h2>
+        <form id="form_usuario" enctype="multipart/form-data">
+
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="phone">Teléfono:</label>
+            <input type="text" name="phone" id="phone">
+
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="confirm_password">Confirmar Contraseña:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required>
+
+            <label for="email">Correo:</label>
+            <input type="email" name="email" id="email">
+
+            <label for="image">Imagen:</label>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .gif" required>
+
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <a href="Redireccionar.html"><button class="return-button">Regresar</button></a>
+    </div>
+
+</body>
+</html>

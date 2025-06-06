@@ -1,0 +1,10 @@
+Plantamiento del problema
+este proyecto se hara con el fin de simular una pagina donde el cliento puede comprar difentes tipos de suscripciones
+en diferentes tipos de plataformas, estas antes de ser compradas seran supervisadas por los usuarios del sistema que son
+los vendedores y que seran los encargados de hacer posible la compra que al mismo tiempo por cada compra que los empleados
+hagan se les pagara la mitad del cobro que se haya hecho.
+
+Detalles
+1.-Estuvimos haciendo pruebas mientras lo haciamos y funcionaba cuando recien lo conectamos, al dia final de terminarlo
+la base de datos ya no se queria conectar (en el PDF se incluiran las imagenes de que se hizo un registro y el mensaje
+que aparecia ya que no se conectaba)

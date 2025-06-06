@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      $('#login_form').submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+          url: 'verificar_cliente.php',
+          type: 'POST',
+          data: $(this).serialize(),
+          success: function (response) {
+            alert(response);
+            if (response.includes("Bienvenido")) {
+              window.location.href = 'index_pg.html'; // o la página que desees
+            }
+          },
+          error: function () {
+            alert("Error en la solicitud.");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Inicio de Sesión</h2>
+    <form id="login_form">
+      <label for="correo">Correo:</label>
+      <input type="email" name="correo" id="correo" required>
+
+      <label for="contraseña">Contraseña:</label>
+      <input type="password" name="contraseña" id="contraseña" required>
+
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+    <div class="register-link">
+      ¿No tienes una cuenta? <a href="form-cliente.html">Regístrate aquí</a>
+    </div>
+  </div>
+
+</body>
+</html>

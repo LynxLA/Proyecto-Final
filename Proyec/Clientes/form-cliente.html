@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Cliente</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .return-button {
+      background-color: #6c757d;
+      margin-top: 10px;
+    }
+
+    .return-button:hover {
+      background-color: #5a6268;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      $('#form_cliente').submit(function (e) {
+        e.preventDefault();
+
+        const password = $('#contraseña').val();
+        const confirmPassword = $('#confirmar_contraseña').val();
+
+        if (password !== confirmPassword) {
+          alert("Las contraseñas no coinciden.");
+          return;
+        }
+
+        const formData = new FormData(this);
+
+        $.ajax({
+          url: 'subir_cliente.php',
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            alert(response);
+            window.location.href = 'registrado.html'; // Redirige después del éxito
+          },
+          error: function () {
+            alert("Hubo un error al procesar el formulario.");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Formulario de Registro de Cliente</h2>
+    <form id="form_cliente" enctype="multipart/form-data">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="text" name="telefono" id="telefono">
+
+      <label for="correo">Correo:</label>
+      <input type="email" name="correo" id="correo" required>
+
+      <label for="direccion">Dirección:</label>
+      <input type="text" name="direccion" id="direccion" required>
+
+      <label for="contraseña">Contraseña:</label>
+      <input type="password" name="contraseña" id="contraseña" required>
+
+      <label for="confirmar_contraseña">Confirmar Contraseña:</label>
+      <input type="password" name="confirmar_contraseña" id="confirmar_contraseña" required>
+
+      <label for="imagen">Imagen:</label>
+      <input type="file" name="imagen" id="imagen" accept=".jpg, .jpeg, .png, .gif" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <a href="Redireccionar.html"><button class="return-button">Regresar</button></a>
+  </div>
+
+</body>
+</html>
