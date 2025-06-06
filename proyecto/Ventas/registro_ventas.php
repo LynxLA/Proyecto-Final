@@ -21,6 +21,7 @@ $producto_id = $_POST['producto_id'];
 $precio = $_POST['precio']; // o puedes traerlo de la tabla Productos
 */
 
+//recive el ID PRODUCTO del ARCHIVO 
 
 // Preparar e insertar la venta
 $sql = "INSERT INTO Ventas (comprador_id, producto_id, precio) VALUES (?, ?, ?)";
