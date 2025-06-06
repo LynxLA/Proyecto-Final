@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suscribirse a Spotify</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100">
   <div class="max-w-xl mx-auto mt-20 bg-white p-8 rounded shadow">
     <h2 class="text-2xl font-bold mb-6 text-center">Suscripción a Spotify</h2>
@@ -16,21 +18,33 @@
       </div>
       <div class="mb-4">
         <label class="block mb-2 font-semibold">Correo electrónico</label>
-        <input type="email" class="w-full p-3 border border-gray-300 rounded" placeholder="tucorreo@example.com" required>
+        <input type="email" class="w-full p-3 border border-gray-300 rounded" placeholder="tucorreo@example.com"
+          required>
       </div>
       <div class="mb-4">
-        <label class="block mb-2 font-semibold">Método de pago</label>
+        <label class="block mb-2 font-semibold">Tipo de suscripcion</label>
         <select class="w-full p-3 border border-gray-300 rounded">
-          <option>Tarjeta de crédito</option>
-          <option>PayPal</option>
-          <option>Transferencia</option>
+        <option value="1">Spotify - Individual - 1 mes - $109</option>
+        <option value="2">Spotify - Individual - 3 meses - $329</option>
+        <option value="3">Spotify - Individual - 6 meses - $659</option>
+        <option value="4">Spotify - Individual - 1 año - $1099</option>
+        <option value="5">Spotify - Duo - 1 mes - $149</option>
+        <option value="6">Spotify - Duo - 3 meses - $459</option>
+        <option value="7">Spotify - Duo - 6 meses - $880</option>
+        <option value="8">Spotify - Duo - 1 año - $1640</option>
+        <option value="9">Spotify - Familiar - 1 mes - $179</option>
+        <option value="10">Spotify - Familiar - 3 meses - $545</option>
+        <option value="11">Spotify - Familiar - 6 meses - $1030</option>
+        <option value="12">Spotify - Familiar - 1 año - $1950</option>
+        <option value="13">Spotify - Estudiante - 1 mes - $70</option>
         </select>
       </div>
-      <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">Confirmar suscripción</button>
+      <a href="../Ventas/registro_ventas.php" class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">Confirmar suscripcion</a>
     </form>
     <p class="text-sm text-center mt-6 text-gray-500">
       Precio: $15.99/mes — puedes cancelar en cualquier momento.
     </p>
   </div>
 </body>
+
 </html>

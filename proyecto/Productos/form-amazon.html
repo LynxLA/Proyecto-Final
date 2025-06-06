@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suscribirse a Amazon</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100">
   <div class="max-w-xl mx-auto mt-20 bg-white p-8 rounded shadow">
     <h2 class="text-2xl font-bold mb-6 text-center">Suscripción a Amazon</h2>
@@ -16,21 +18,23 @@
       </div>
       <div class="mb-4">
         <label class="block mb-2 font-semibold">Correo electrónico</label>
-        <input type="email" class="w-full p-3 border border-gray-300 rounded" placeholder="tucorreo@example.com" required>
+        <input type="email" class="w-full p-3 border border-gray-300 rounded" placeholder="tucorreo@example.com"
+          required>
       </div>
       <div class="mb-4">
-        <label class="block mb-2 font-semibold">Método de pago</label>
+        <label class="block mb-2 font-semibold">Tipo de suscripcion</label>
         <select class="w-full p-3 border border-gray-300 rounded">
-          <option>Tarjeta de crédito</option>
-          <option>PayPal</option>
-          <option>Transferencia</option>
+          <option value="14">Amazon Prime - Amazon Prime - Mensual - $85</option>
+          <option value="15">Amazon Prime - Amazon Prime - Anual - $859</option>
         </select>
       </div>
-      <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">Confirmar suscripción</button>
+      <a href="../Ventas/registro_ventas.php "
+        class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">Confirmar suscripcion</a>
     </form>
     <p class="text-sm text-center mt-6 text-gray-500">
       Precio: $15.99/mes — puedes cancelar en cualquier momento.
     </p>
   </div>
 </body>
+
 </html>
