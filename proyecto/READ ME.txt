@@ -5,6 +5,9 @@ los vendedores y que seran los encargados de hacer posible la compra que al mism
 hagan se les pagara la mitad del cobro que se haya hecho.
 
 Detalles
-1.-Estuvimos haciendo pruebas mientras lo haciamos y funcionaba cuando recien lo conectamos, al dia final de terminarlo
-la base de datos ya no se queria conectar (en el PDF se incluiran las imagenes de que se hizo un registro y el mensaje
-que aparecia ya que no se conectaba)
+1.-problemas con la carpeta ventas
+2.-problemas con los archivos de tickes
+3.-problemas con el inicio de sesion
+
+Causas principales
+-PROBLEMAS DE TIEMPO!!!
