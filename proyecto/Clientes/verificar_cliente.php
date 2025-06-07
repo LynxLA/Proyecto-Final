@@ -17,7 +17,7 @@ $correo = $_POST['correo'] ?? '';
 $contraseña = $_POST['contraseña'] ?? '';
 
 // Verificar existencia del usuario
-$stmt = $conn->prepare("SELECT contraseña, nombre FROM cliente WHERE correo = ?");
+$stmt = $conn->prepare("SELECT contraseña, nombre FROM clientes WHERE correo = ?");
 $stmt->bind_param("s", $correo);
 $stmt->execute();
 $stmt->store_result();
