@@ -36,6 +36,33 @@ CREATE TABLE `usuarios` (
   `imagen` VARCHAR(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Crear la tabla Ventas
+CREATE TABLE Ventas (
+    id_venta INT PRIMARY KEY,
+    id_comprador INT NOT NULL,
+    id_producto INT NOT NULL,
+    fecha DATE NOT NULL,
+    costo DECIMAL(10, 2) NOT NULL
+);
+
+-- Crear la tabla Tickets
+CREATE TABLE Tickets (
+    id_ticket INT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_admin INT NOT NULL,
+    fecha_alta DATE NOT NULL,
+    fecha_baja DATE NULL,
+    descripcion NVARCHAR(500) NOT NULL,
+    estatus NVARCHAR(50) NOT NULL
+);
+
+-- Modificar la tabla para que id_venta sea autoincremental
+ALTER TABLE Ventas MODIFY id_venta INT AUTO_INCREMENT;
+
+-- Establecer fecha por defecto como la fecha actual
+ALTER TABLE Ventas MODIFY fecha DATE NOT NULL DEFAULT CURRENT_DATE;
+
+
 -- Insertar datos en Membresias
 INSERT INTO Membresias (Servicio, Plan, Duracion, Precio) VALUES
   ('Spotify', 'Individual', '1 mes', 109),
